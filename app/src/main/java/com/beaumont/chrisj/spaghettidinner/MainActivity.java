@@ -263,6 +263,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         this.controlTower = new ControlTower(getApplicationContext());
         this.drone = new Drone(getApplicationContext());
+
+        makeToast("Welcome! :)");
     }
 
 
