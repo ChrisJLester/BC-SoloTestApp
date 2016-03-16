@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="#000000"
+    tools:context="com.beaumont.chrisj.spaghettidinner.MainActivity">
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/golden_border"
+        android:padding="10dp"
+        android:id="@+id/linearLayout">
+
+        <TextView android:id="@+id/lblTowerConn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tower connected: false"
+            android:textSize="18sp" />
+
+        <TextView android:id="@+id/lblSoloConn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Solo connected: false"
+            android:textSize="18sp" />
+
+        <TextView android:id="@+id/lblSoloBatt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Solo battery life: 0%"
+            android:textSize="18sp"/>
+
+        <TextView android:id="@+id/lblSoloState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Solo state: N/A"
+            android:textSize="18sp"/>
+
+        <TextView android:id="@+id/lblSoloMode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Solo mode: N/A"
+            android:textSize="18sp"/>
+
+        <TextView android:id="@+id/lblHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Home location"
+            android:textSize="18sp"/>
+
+        <TextView android:id="@+id/lblHomeLat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="Lat:"
+            android:textSize="18sp"/>
+
+        <TextView android:id="@+id/lblHomeLong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="Long:"
+            android:textSize="18sp"/>
+
+        <TextView android:id="@+id/lblCurrent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Currrent location"
+            android:textSize="18sp"/>
+
+        <TextView android:id="@+id/lblCurrentLat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="Lat:"
+            android:textSize="18sp"/>
+
+        <TextView android:id="@+id/lblCurrentLong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="Long:"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Distance from home:"
+            android:textSize="18sp"/>
+
+        <TextView android:id="@+id/lblDistance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="0 meters"
+            android:textSize="18sp"/>
+
+        <TextView android:id="@+id/lblAlt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Altitude: 0 meters"
+            android:textSize="18sp"/>
+
+        <TextView android:id="@+id/lblSpeed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Speed: 0 m/s"
+            android:textSize="18sp"/>
+
+        <TextView android:id="@+id/lblYaw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yaw: 0 degrees"
+            android:textSize="18sp"/>
+
+        <TextView android:id="@+id/lblTargetYaw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Target Yaw: 0 degrees"
+            android:textSize="18sp"/>
+
+        <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/icon_settings"
+            android:onClick="onBtnSettings"
+            android:layout_marginStart="63dp"
+            android:layout_marginTop="25dp"/>
+    </LinearLayout>
+
+    <ImageView android:id="@+id/compass_north"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/compass_north"/>
+
+    <ImageView android:id="@+id/compass_drone"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/compass_spinner"/>
+
+    <Button android:id="@+id/btnConn"
+        android:focusable="true"
+        android:nextFocusDown="@+id/btnLaunch"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignTop="@+id/linearLayout"
+        android:layout_toEndOf="@+id/linearLayout"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/rounded_button_red"
+        android:onClick="onBtnConn"
+        android:text="Connect"
+        android:textSize="18sp"/>
+
+    <Button android:id="@id/btnLaunch"
+        android:focusable="true"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@drawable/rounded_button_red"
+        android:onClick="onBtnLaunch"
+        android:text="Arm"
+        android:textSize="18sp"
+        android:layout_above="@+id/btnLeft"
+        android:layout_alignStart="@+id/btnConn" />
+
+    <Button android:id="@+id/btnForceGuidedMode"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@drawable/rounded_button_red"
+        android:onClick="onBtnForceGuidedMode"
+        android:text="Guided mode"
+        android:textSize="19sp"
+        android:layout_above="@+id/btnStop"
+        android:layout_marginBottom="15dp"
+        android:layout_alignStart="@+id/btnLaunch" />
+
+    <Button android:id="@+id/btnStop"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@drawable/rounded_button_red"
+        android:onClick="onBtnStop"
+        android:text="Stop"
+        android:textSize="18sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/btnLaunch" />
+
+    <ImageButton android:id="@+id/btnForward"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_above="@+id/compass_north"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:onClick="onBtnForward"
+        android:background="@drawable/arrow_forward"/>
+
+    <ImageButton android:id="@+id/btnRight"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/compass_north"
+        android:layout_marginStart="20dp"
+        android:onClick="ontBtnRight"
+        android:background="@drawable/arrow_right"/>
+
+    <ImageButton android:id="@+id/btnBackward"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/compass_north"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:onClick="onBtnBackward"
+        android:background="@drawable/arrow_backward"/>
+
+    <ImageButton android:id="@+id/btnLeft"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@+id/compass_north"
+        android:layout_marginEnd="20dp"
+        android:onClick="onBtnLeft"
+        android:background="@drawable/arrow_left"/>
+
+    <Button android:id="@+id/btnRotateLeft"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignTop="@+id/btnRotateRight"
+        android:layout_toStartOf="@+id/btnRotateRight"
+        android:layout_marginEnd="40dp"
+        android:text="Rotate left"
+        android:textSize="20sp"
+        android:onClick="onBtnRotateLeft"
+        android:background="@drawable/rounded_button_green" />
+
+    <Button android:id="@+id/btnRotateRight"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:text="Rotate right"
+        android:textSize="20sp"
+        android:onClick="onBtnRotateRight"
+        android:background="@drawable/rounded_button_green"
+        android:layout_above="@+id/btnLaunch"
+        android:layout_alignStart="@+id/btnDecreaseAlt" />
+
+    <Button android:id="@+id/btnIncreaseAlt"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:text="Increase Altitude"
+        android:textSize="20sp"
+        android:onClick="onBtnIncreaseAltitude"
+        android:background="@drawable/rounded_button_blue"
+        android:layout_below="@+id/btnForward"
+        android:layout_alignStart="@+id/btnRotateLeft" />
+
+    <Button android:id="@+id/btnDecreaseAlt"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:text="Decrease Altitude"
+        android:textSize="20sp"
+        android:background="@drawable/rounded_button_blue"
+        android:onClick="onBtnDecreaseAltitude"
+        android:layout_marginEnd="50dp"
+        android:layout_below="@+id/btnForward"
+        android:layout_alignParentEnd="true" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignStart="@+id/btnRight"
+        android:layout_alignTop="@+id/btnForceGuidedMode">
+
+        <Button android:id="@+id/btnLoadStream"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Load"
+            android:textColor="#000"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignStart="@+id/btnLookUp"
+            android:onClick="onBtnLoadStream" />
+
+        <Button android:id="@+id/btnRecord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toggle Record"
+            android:textColor="#000"
+            android:layout_below="@+id/btnLoadStream"
+            android:layout_alignParentEnd="true"
+            android:layout_alignStart="@+id/btnLookUp"
+            android:onClick="onBtnRecord"/>
+
+        <Button android:id="@+id/btnPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Photo"
+            android:textColor="#000"
+            android:layout_below="@+id/btnRecord"
+            android:layout_alignParentEnd="true"
+            android:layout_alignStart="@+id/btnLookUp"
+            android:onClick="onBtnPhoto"/>
+
+        <Button android:id="@+id/btnLookUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Look Up"
+            android:textColor="#000"
+            android:layout_below="@+id/btnPhoto"
+            android:layout_alignParentEnd="true"
+            android:layout_alignStart="@+id/btnLookDown"
+            android:onClick="onBtnLookUp"/>
+
+        <Button android:id="@+id/btnLookDown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Look Down"
+            android:textColor="#000"
+            android:layout_below="@+id/btnLookUp"
+            android:layout_alignParentEnd="true"
+            android:onClick="onBtnLookDown"/>
+
+        <TextureView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/stream_frame"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/btnLoadStream" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
