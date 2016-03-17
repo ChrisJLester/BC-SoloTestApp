@@ -3,7 +3,6 @@ package com.beaumont.chrisj.spaghettidinner;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.SurfaceTexture;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -18,13 +17,10 @@ import android.view.TextureView;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -63,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private ImageView compass_north, compass_drone;
     private TextView lblTowerConn, lblSoloConn, lblSoloBatt, lblSoloState, lblSoloMode, lblHomeLat, lblHomeLong,
             lblCurrentLat, lblCurrentLong, lblDistance, lblAlt, lblSpeed, lblYaw, lblTargetYaw;
-    private Button btnConn, btnLaunch, btnLoadStream, btnRecord, btnRotateLeft, btnRotateRight, btnIncreaseAlt, btnDecreaseAlt;
+    private Button btnConn, btnLaunch, btnLoadStream, btnRotateLeft, btnRotateRight, btnIncreaseAlt, btnDecreaseAlt;
     private ImageButton btnForward, btnRight, btnBackward, btnLeft;
     private TextureView stream_frame;
 
@@ -81,7 +77,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private Drone drone;
     private int droneType = Type.TYPE_UNKNOWN;
     private final Handler handler = new Handler();
-    private boolean isConnected;
     private boolean isFlying;
     private double drone_yaw;
     private double target_yaw;
@@ -177,14 +172,14 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     @Override
     public void onTowerConnected(){
-        lblTowerConn.setText("Tower connected: true");
+        lblTowerConn.setText(R.string.tower_conn);
         this.controlTower.registerDrone(this.drone, this.handler);
         this.drone.registerDroneListener(this);
     }
 
     @Override
     public void onTowerDisconnected(){
-        lblTowerConn.setText("Tower connected: false");
+        lblTowerConn.setText(R.string.tele_tower);
     }
 
     @Override
@@ -202,13 +197,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         switch (event) {
             case AttributeEvent.STATE_CONNECTED:
                 makeToast("Drone Connected");
-                lblSoloConn.setText("Solo connected: true");
+                lblSoloConn.setText(R.string.solo_conn);
                 updateConnectedButton(this.drone.isConnected());
                 updateLaunchButton();
                 break;
             case AttributeEvent.STATE_DISCONNECTED:
                 makeToast("Drone Disconnected");
-                lblSoloConn.setText("Solo connected: false");
+                lblSoloConn.setText(R.string.tele_solo);
                 updateConnectedButton(this.drone.isConnected());
                 updateLaunchButton();
                 break;
@@ -338,11 +333,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     private void updateConnectedButton(Boolean conn) {
-        isConnected = conn;
-        if (isConnected) {
-            btnConn.setText("Disconnect");
+        if (conn) {
+            btnConn.setText(R.string.controls_disconn);
         } else {
-            btnConn.setText("Connect");
+            btnConn.setText(R.string.controls_conn);
         }
     }
 
@@ -359,16 +353,16 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         if (vehicleState.isFlying()) {
             // Land
-            lblSoloState.setText("Solo State: Flying");
-            btnLaunch.setText("LAND");
+            lblSoloState.setText(R.string.solo_state_flying);
+            btnLaunch.setText(R.string.action_btn_land);
         } else if (vehicleState.isArmed()) {
             // Take off
-            lblSoloState.setText("Solo State: Armed");
-            btnLaunch.setText("TAKE OFF");
+            lblSoloState.setText(R.string.solo_state_armed);
+            btnLaunch.setText(R.string.action_btn_takeoff);
         } else if (vehicleState.isConnected()){
             // Connected but not Armed
-            lblSoloState.setText("Solo State: Connected");
-            btnLaunch.setText("ARM");
+            lblSoloState.setText(R.string.solo_state_connected);
+            btnLaunch.setText(R.string.action_btn_arm);
         }
     }
 
@@ -600,7 +594,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             @Override
             public void onSuccess() {
                 stream_loaded = true;
-                btnLoadStream.setText("Stop");
+                btnLoadStream.setText(R.string.stream_stop);
             }
 
             @Override
@@ -621,7 +615,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             @Override
             public void onSuccess() {
                 stream_loaded = false;
-                btnLoadStream.setText("Load");
+                btnLoadStream.setText(R.string.stream_load);
             }
         });
         GimbalApi.getApi(this.drone).stopGimbalControl(ol);
@@ -632,7 +626,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     //=========================================================================
     protected void updateVehicleMode() {
         State vehicleState = this.drone.getAttribute(AttributeType.STATE);
-        lblSoloMode.setText("Solo mode: " + vehicleState.getVehicleMode());
+        lblSoloMode.setText(getResources().getString(R.string.tele_update_mode, vehicleState.getVehicleMode()));
     }
 
     protected void updateAttitude(){
@@ -640,21 +634,20 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         drone_yaw = droneAttitude.getYaw();
         lblYaw.setText(String.format("Drone yaw: %.2f", droneAttitude.getYaw()));
 
-        double current_yaw = droneAttitude.getYaw();
         //Drone yaw goes from 0 to 180 and then -179 back to 0. This converts it to 0-360
-        current_yaw = (drone_yaw < 0 ? (180 + (180 - (-drone_yaw))) : drone_yaw);
+        double current_yaw = (drone_yaw < 0 ? (180 + (180 - (-drone_yaw))) : drone_yaw);
         float target_yaw = azimuth + (float)current_yaw;
         compass_drone.setRotation(target_yaw);
     }
 
     protected void updateAltitude() {
         Altitude droneAltitude = this.drone.getAttribute(AttributeType.ALTITUDE);
-        lblAlt.setText(String.format("Altitude: %.2f", droneAltitude.getAltitude()) + " m");
+        lblAlt.setText(getResources().getString(R.string.tele_update_spd, droneAltitude.getAltitude()));
     }
 
     protected void updateSpeed() {
         Speed droneSpeed = this.drone.getAttribute(AttributeType.SPEED);
-        lblSpeed.setText(String.format("Speed: %.2f", droneSpeed.getGroundSpeed()) + " m/s");
+        lblSpeed.setText(getResources().getString(R.string.tele_update_spd, droneSpeed.getGroundSpeed()));
 
         Gps droneGps = this.drone.getAttribute(AttributeType.GPS);
         lblCurrentLat.setText(String.format("Lat: %.2f", droneGps.getPosition().getLatitude()));
@@ -665,13 +658,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     protected void updateHome(){
         Home droneHome = this.drone.getAttribute(AttributeType.HOME);
-        lblHomeLat.setText(String.format("%3.1f", droneHome.getCoordinate().getLatitude()) + " m");
-        lblHomeLong.setText(String.format("%3.1f", droneHome.getCoordinate().getLongitude()) + " m");
+        lblHomeLat.setText(getResources().getString(R.string.tele_update_home_lat, droneHome.getCoordinate().getLatitude()));
+        lblHomeLong.setText(getResources().getString(R.string.tele_update_home_long, droneHome.getCoordinate().getLongitude()));
     }
 
     protected void updateBattery(){
         Battery bat = this.drone.getAttribute(AttributeType.BATTERY);
-        lblSoloBatt.setText("Solo battery life: " + bat.getBatteryRemain() + "%");
+        lblSoloBatt.setText(getResources().getString(R.string.tele_update_mode, bat.getBatteryRemain()));
     }
 
     protected void updateDistanceFromHome() {
@@ -680,7 +673,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         Gps droneGps = this.drone.getAttribute(AttributeType.GPS);
         LatLong vehiclePosition = droneGps.getPosition();
 
-        double distanceFromHome =  0;
+        double distanceFromHome;
 
         if (droneGps.isValid()) {
             LatLongAlt vehicle3DPosition = new LatLongAlt(vehiclePosition.getLatitude(), vehiclePosition.getLongitude(), vehicleAltitude);
@@ -690,13 +683,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             distanceFromHome = 0;
         }
 
-        lblDistance.setText(String.format("%3.1f", distanceFromHome) + " m");
+        lblDistance.setText(getResources().getString(R.string.tele_update_batt, distanceFromHome));
     }
 
     public void onBtnSettings(View view){
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
         LayoutInflater inflater = getLayoutInflater();
-        View convertView = (View) inflater.inflate(R.layout.layout_settings, null);
+        View convertView = inflater.inflate(R.layout.layout_settings, null);
 
         final EditText lblSettings_Yaw = (EditText)convertView.findViewById(R.id.lblSettings_Yaw);
         final EditText lblSettings_Alt = (EditText)convertView.findViewById(R.id.lblSettings_Alt);
@@ -704,11 +697,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         final EditText lblSettings_Spd = (EditText)convertView.findViewById(R.id.lblSettings_TurnSpd);
         final EditText lblSettings_Dur = (EditText)convertView.findViewById(R.id.lblSettings_ChkDur);
 
-        lblSettings_Alt.setText(MOVEMENT_ALT + "");
-        lblSettings_Deg.setText(MOVEMENT_DEG + "");
-        lblSettings_Dur.setText(YAW_CHK_DUR / 1000 + "");
-        lblSettings_Spd.setText(TURN_SPD * 100 + "");
-        lblSettings_Yaw.setText(MOVEMENT_YAW + "");
+        lblSettings_Alt.setText(MOVEMENT_ALT);
+        lblSettings_Deg.setText(MOVEMENT_DEG);
+        lblSettings_Dur.setText(YAW_CHK_DUR / 1000);
+        lblSettings_Spd.setText((int)TURN_SPD * 100);
+        lblSettings_Yaw.setText(MOVEMENT_YAW);
 
         alertDialog.setView(convertView)
                 .setTitle("Settings")
@@ -716,20 +709,19 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        String temp;
-                        if(!(lblSettings_Alt.getText().toString().isEmpty()))
+                        if (!(lblSettings_Alt.getText().toString().isEmpty()))
                             MOVEMENT_ALT = Integer.parseInt(lblSettings_Alt.getText().toString());
 
-                        if(!(lblSettings_Deg.getText().toString().isEmpty()))
+                        if (!(lblSettings_Deg.getText().toString().isEmpty()))
                             MOVEMENT_DEG = Integer.parseInt(lblSettings_Deg.getText().toString());
 
-                        if(!(lblSettings_Dur.getText().toString().isEmpty()))
+                        if (!(lblSettings_Dur.getText().toString().isEmpty()))
                             YAW_CHK_DUR = Integer.parseInt(lblSettings_Dur.getText().toString()) * 1000;
 
-                        if(!(lblSettings_Spd.getText().toString().isEmpty()))
+                        if (!(lblSettings_Spd.getText().toString().isEmpty()))
                             TURN_SPD = Float.parseFloat(lblSettings_Spd.getText().toString()) / 100;
 
-                        if(!(lblSettings_Yaw.getText().toString().isEmpty()))
+                        if (!(lblSettings_Yaw.getText().toString().isEmpty()))
                             MOVEMENT_YAW = Integer.parseInt(lblSettings_Yaw.getText().toString());
                     }
                 });
@@ -761,7 +753,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         btnConn = (Button)findViewById(R.id.btnConn);
         btnLaunch = (Button)findViewById(R.id.btnLaunch);
         btnLoadStream = (Button)findViewById(R.id.btnLoadStream);
-        btnRecord = (Button)findViewById(R.id.btnRecord);
         btnRotateLeft = (Button)findViewById(R.id.btnRotateLeft);
         btnRotateRight = (Button)findViewById(R.id.btnRotateRight);
         btnIncreaseAlt = (Button)findViewById(R.id.btnIncreaseAlt);

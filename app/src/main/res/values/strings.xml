@@ -1,3 +1,67 @@
 <resources>
     <string name="app_name">SpaghettiDinner</string>
+    <string name="settings_yaw">Movement - yaw (m):</string>
+    <string name="settings_alt">Movement - altitude (m):</string>
+    <string name="settings_deg">Movement - degrees (deg):</string>
+    <string name="settings_spd">Turn speed (%):</string>
+    <string name="settings_dur">Check duration (s):</string>
+
+    <string name="tele_tower">Tower connected: false</string>
+    <string name="tele_solo">Solo connected: false</string>
+    <string name="tele_batt">Solo battery life: 0%</string>
+    <string name="tele_state">Solo state: N/A</string>
+    <string name="tele_mode">Solo mode: N/A</string>
+    <string name="tele_home">Home location</string>
+    <string name="tele_curr">Current location</string>
+    <string name="tele_lat">Lat:</string>
+    <string name="tele_long">Long:</string>
+    <string name="tele_dis">Distance from home:</string>
+    <string name="tele_dis2">0 meters</string>
+    <string name="tele_alt">Altitude: 0 meters</string>
+    <string name="tele_spd">Speed: 0 m/s</string>
+    <string name="tele_yaw">Yaw: 0 degrees</string>
+    <string name="tele_tar">Target Yaw: 0 degrees</string>
+
+    <string name="controls_conn">Connect</string>
+    <string name="controls_disconn">Disconnect</string>
+    <string name="controls_arm">Arm</string>
+    <string name="controls_guide">Guided mode</string>
+    <string name="controls_stop">Stop</string>
+    <string name="controls_rot_left">Rotate left</string>
+    <string name="controls_rot_right">Rotate right</string>
+    <string name="controls_alt_inc">Increase altitude</string>
+    <string name="controls_alt_dec">Decrease altitude</string>
+
+    <string name="stream_load">Load</string>
+    <string name="stream_stop">Stop</string>
+    <string name="stream_rec">Toggle Record</string>
+    <string name="stream_photo">Photo</string>
+    <string name="stream_up">Look Up</string>
+    <string name="stream_down">Look Down</string>
+
+    <string name="dis_settings">Settings</string>
+    <string name="dis_compass">Compass</string>
+    <string name="dis_dir">Drone direction</string>
+    <string name="dis_forward">Move forwards</string>
+    <string name="dis_right">Move right</string>
+    <string name="dis_left">Move left</string>
+    <string name="dis_backward">Move backwards</string>
+
+    <string name="solo_state_flying">Solo State: Flying</string>
+    <string name="solo_state_armed">Solo State: Armed</string>
+    <string name="solo_state_connected">Solo State: Connected</string>
+    <string name="action_btn_land">Land</string>
+    <string name="action_btn_takeoff">Take off</string>
+    <string name="action_btn_arm">Arm</string>
+
+    <string name="tower_conn">Tower connected: true</string>
+    <string name="solo_conn">Solo connected: true</string>
+
+    <string name="tele_update_mode">Solo mode: %1$s</string>
+    <string name="tele_update_home_lat">%.2f m</string>
+    <string name="tele_update_home_long">%.2f m</string>
+    <string name="tele_update_batt">Solo battery life: %1$d %</string>
+    <string name="tele_update_alt">Altitude: %.2$d m%</string>
+    <string name="tele_update_spd">Speed: %.2$d m/s</string>
+    <string name="tele_update_dis">%.2d m</string>
 </resources>
