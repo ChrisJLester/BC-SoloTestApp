@@ -3,7 +3,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:columnCount="2">
+    android:columnCount="2"
+    android:background="@color/white">
 
     <TextView
         android:labelFor="@+id/lblSettings_Yaw"
@@ -50,7 +51,7 @@
         android:textSize="@dimen/text_size_30" />
 
     <TextView
-        android:labelFor="@id/lblSettings_ChkDur"
+        android:labelFor="@+id/lblSettings_ChkDur"
         android:layout_width="@dimen/dimen_400"
         android:layout_height="wrap_content"
         android:layout_row="4"

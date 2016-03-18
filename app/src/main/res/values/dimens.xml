@@ -16,5 +16,7 @@
     <dimen name="dimen_100">50dp</dimen>
     <dimen name="dimen_120">60dp</dimen>
     <dimen name="dimen_200">100dp</dimen>
+    <dimen name="dimen_250">125dp</dimen>
     <dimen name="dimen_400">200dp</dimen>
+    <dimen name="dimen_600">600dp</dimen>
 </resources>

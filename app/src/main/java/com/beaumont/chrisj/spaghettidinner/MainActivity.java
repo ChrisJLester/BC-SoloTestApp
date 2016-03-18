@@ -399,9 +399,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         if(isFlying) {
             ControlApi.getApi(this.drone).turnTo((float)target_yaw, TURN_SPD, false, new AbstractCommandListener() {
                 @Override
-                public void onSuccess() {
-                    check_yaw();
-                }
+                public void onSuccess() {}
                 @Override
                 public void onError(int executionError) {
                     read_executionError("Failed to rotate", executionError);
@@ -430,9 +428,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         if(isFlying) {
             ControlApi.getApi(this.drone).turnTo((float) target_yaw, -TURN_SPD, false, new AbstractCommandListener() {
                 @Override
-                public void onSuccess() {
-                    check_yaw();
-                }
+                public void onSuccess() {}
 
                 @Override
                 public void onError(int executionError) {
@@ -697,11 +693,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         final EditText lblSettings_Spd = (EditText)convertView.findViewById(R.id.lblSettings_TurnSpd);
         final EditText lblSettings_Dur = (EditText)convertView.findViewById(R.id.lblSettings_ChkDur);
 
-        lblSettings_Alt.setText(MOVEMENT_ALT);
-        lblSettings_Deg.setText(MOVEMENT_DEG);
-        lblSettings_Dur.setText(YAW_CHK_DUR / 1000);
-        lblSettings_Spd.setText((int)TURN_SPD * 100);
-        lblSettings_Yaw.setText(MOVEMENT_YAW);
+        lblSettings_Alt.setText(MOVEMENT_ALT + "");
+        lblSettings_Deg.setText(MOVEMENT_DEG + "");
+        lblSettings_Dur.setText(YAW_CHK_DUR / 1000 + "");
+        lblSettings_Spd.setText((int)TURN_SPD * 100 + "");
+        lblSettings_Yaw.setText(MOVEMENT_YAW + "");
 
         alertDialog.setView(convertView)
                 .setTitle("Settings")

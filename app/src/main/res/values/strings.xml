@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SpaghettiDinner</string>
+    <string name="app_name">Solo Test App</string>
     <string name="settings_yaw">Movement - yaw (m):</string>
     <string name="settings_alt">Movement - altitude (m):</string>
     <string name="settings_deg">Movement - degrees (deg):</string>
