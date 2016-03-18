@@ -894,3 +894,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         btnLeft.setEnabled(b);
     }
 }
+
+
+//TODO:update telemtry
+//TODO:add takeoff height to settings
+//TODO:Fix rotate button
+//TODO:Fix turn speed
