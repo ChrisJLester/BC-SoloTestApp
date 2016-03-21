@@ -15,6 +15,7 @@
         android:text="@string/settings_yaw"
         android:textColor="#000"
         android:textAlignment="textEnd"
+        android:layout_gravity="end"
         android:textSize="@dimen/text_size_30" />
 
     <TextView
@@ -26,6 +27,7 @@
         android:text="@string/settings_alt"
         android:textColor="#000"
         android:textAlignment="textEnd"
+        android:layout_gravity="end"
         android:textSize="@dimen/text_size_30"/>
 
     <TextView
@@ -36,7 +38,6 @@
         android:layout_column="0"
         android:text="@string/settings_deg"
         android:textColor="#000"
-        android:textAlignment="textEnd"
         android:textSize="@dimen/text_size_30" />
 
     <TextView
@@ -48,6 +49,7 @@
         android:text="@string/settings_spd"
         android:textColor="#000"
         android:textAlignment="textEnd"
+        android:layout_gravity="end"
         android:textSize="@dimen/text_size_30" />
 
     <TextView
@@ -59,12 +61,14 @@
         android:text="@string/settings_dur"
         android:textColor="#000"
         android:textAlignment="textEnd"
+        android:layout_gravity="end"
         android:textSize="@dimen/text_size_30" />
 
     <EditText android:id="@id/lblSettings_Yaw"
         android:layout_width="@dimen/dimen_100"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/padding_50"
+        android:layout_marginLeft="@dimen/padding_50"
         android:layout_row="0"
         android:layout_column="1"
         android:textColor="#000"
@@ -76,6 +80,7 @@
         android:layout_width="@dimen/dimen_100"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/padding_50"
+        android:layout_marginLeft="@dimen/padding_50"
         android:layout_row="1"
         android:layout_column="1"
         android:textColor="#000"
@@ -87,6 +92,7 @@
         android:layout_width="@dimen/dimen_100"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/padding_50"
+        android:layout_marginLeft="@dimen/padding_50"
         android:layout_row="2"
         android:layout_column="1"
         android:textColor="#000"
@@ -98,6 +104,7 @@
         android:layout_width="@dimen/dimen_100"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/padding_50"
+        android:layout_marginLeft="@dimen/padding_50"
         android:layout_row="3"
         android:layout_column="1"
         android:textColor="#000"
@@ -109,6 +116,7 @@
         android:layout_width="@dimen/dimen_100"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/padding_50"
+        android:layout_marginLeft="@dimen/padding_50"
         android:layout_row="4"
         android:layout_column="1"
         android:textColor="#000"

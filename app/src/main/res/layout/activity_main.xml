@@ -361,7 +361,7 @@
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
             android:orientation="vertical">
 
             <Button android:id="@+id/btnLoadStream"
@@ -412,5 +412,4 @@
             android:layout_toStartOf="@+id/linearLayout3"
             android:layout_toLeftOf="@id/linearLayout3"/>
     </RelativeLayout>
-
 </RelativeLayout>
