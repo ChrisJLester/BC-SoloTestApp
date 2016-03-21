@@ -1,405 +1,399 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
-    android:background="#000000"
+    android:padding="@dimen/padding_10"
+    android:background="#000"
     tools:context="com.beaumont.chrisj.spaghettidinner.MainActivity">
 
-    <LinearLayout
-        android:layout_width="250dp"
-        android:layout_height="600dp"
-        android:orientation="vertical"
+    <LinearLayout android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         android:background="@drawable/golden_border"
-        android:padding="10dp"
-        android:id="@+id/linearLayout"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:orientation="vertical"
+        android:padding="@dimen/padding_20">
 
         <TextView android:id="@+id/lblTowerConn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tower connected: false"
-            android:textSize="18sp" />
+            android:text="@string/tele_tower"
+            android:textSize="@dimen/text_size_18" />
 
         <TextView android:id="@+id/lblSoloConn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Solo connected: false"
-            android:textSize="18sp" />
+            android:text="@string/tele_solo"
+            android:textSize="@dimen/text_size_18" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" >
+        </View>
 
         <TextView android:id="@+id/lblSoloBatt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Solo battery life: 0%"
-            android:textSize="18sp"/>
+            android:text="@string/tele_batt"
+            android:textSize="@dimen/text_size_18"/>
 
         <TextView android:id="@+id/lblSoloState"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Solo state: N/A"
-            android:textSize="18sp"/>
+            android:text="@string/tele_state"
+            android:textSize="@dimen/text_size_18"/>
 
         <TextView android:id="@+id/lblSoloMode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Solo mode: N/A"
-            android:textSize="18sp"/>
+            android:text="@string/tele_mode"
+            android:textSize="@dimen/text_size_18"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" >
+        </View>
 
         <TextView android:id="@+id/lblHome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Home location"
-            android:textSize="18sp"/>
+            android:text="@string/tele_home"
+            android:textSize="@dimen/text_size_18"/>
 
         <TextView android:id="@+id/lblHomeLat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="Lat:"
-            android:textSize="18sp"/>
+            android:text="@string/tele_lat"
+            android:textSize="@dimen/text_size_18"/>
 
         <TextView android:id="@+id/lblHomeLong"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="Long:"
-            android:textSize="18sp"/>
+            android:text="@string/tele_long"
+            android:textSize="@dimen/text_size_18"/>
 
         <TextView android:id="@+id/lblCurrent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Currrent location"
-            android:textSize="18sp"/>
+            android:text="@string/tele_curr"
+            android:textSize="@dimen/text_size_18"/>
 
         <TextView android:id="@+id/lblCurrentLat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="Lat:"
-            android:textSize="18sp"/>
+            android:text="@string/tele_lat"
+            android:textSize="@dimen/text_size_18"/>
 
         <TextView android:id="@+id/lblCurrentLong"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="Long:"
-            android:textSize="18sp"/>
+            android:text="@string/tele_long"
+            android:textSize="@dimen/text_size_18"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Distance from home:"
-            android:textSize="18sp"/>
+            android:text="@string/tele_dis"
+            android:textSize="@dimen/text_size_18"/>
 
         <TextView android:id="@+id/lblDistance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="0 meters"
-            android:textSize="18sp"/>
+            android:text="@string/tele_dis2"
+            android:textSize="@dimen/text_size_18"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" >
+        </View>
 
         <TextView android:id="@+id/lblAlt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Altitude: 0 meters"
-            android:textSize="18sp"/>
+            android:text="@string/tele_alt"
+            android:textSize="@dimen/text_size_18"/>
 
         <TextView android:id="@+id/lblSpeed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Speed: 0 m/s"
-            android:textSize="18sp"/>
+            android:text="@string/tele_spd"
+            android:textSize="@dimen/text_size_18"/>
 
         <TextView android:id="@+id/lblYaw"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Yaw: 0 degrees"
-            android:textSize="18sp"/>
+            android:text="@string/tele_yaw"
+            android:textSize="@dimen/text_size_18"/>
 
         <TextView android:id="@+id/lblTargetYaw"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Target Yaw: 0 degrees"
-            android:textSize="18sp"/>
-
-        <ImageButton
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@drawable/icon_settings"
-            android:onClick="onBtnSettings"
-            android:layout_marginStart="63dp"
-            android:layout_marginTop="25dp"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="250dp"
-        android:layout_height="match_parent"
-        android:layout_below="@id/linearLayout"
-        android:orientation="vertical"
-        android:gravity="center">
+            android:text="@string/tele_tar"
+            android:textSize="@dimen/text_size_18"/>
 
         <View
             android:layout_width="0dp"
-            android:layout_height="1dp"
+            android:layout_height="0dp"
+            android:layout_weight="2" >
+        </View>
+
+        <ImageButton
+            android:layout_width="@dimen/dimen_100"
+            android:layout_height="@dimen/dimen_100"
+            android:layout_gravity="center"
+            android:contentDescription="@string/dis_settings"
+            android:background="@drawable/icon_settings"
+            android:onClick="onBtnSettings"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="2" >
+        </View>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@id/linearLayout"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_15">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_weight="1" >
         </View>
 
         <Button android:id="@+id/btnConn"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="@dimen/dimen_120"
+            android:layout_height="@dimen/dimen_120"
             android:background="@drawable/rounded_button_red"
             android:onClick="onBtnConn"
-            android:text="Connect"
-            android:textSize="18sp"/>
+            android:text="@string/controls_conn"
+            android:textSize="@dimen/text_size_18"/>
 
         <View
             android:layout_width="0dp"
-            android:layout_height="1dp"
+            android:layout_height="0dp"
             android:layout_weight="1" >
         </View>
 
         <Button android:id="@+id/btnLaunch"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="@dimen/dimen_120"
+            android:layout_height="@dimen/dimen_120"
             android:background="@drawable/rounded_button_red"
             android:onClick="onBtnLaunch"
-            android:text="Arm"
-            android:textSize="18sp"/>
+            android:text="@string/controls_arm"
+            android:textSize="@dimen/text_size_18"/>
 
         <View
             android:layout_width="0dp"
-            android:layout_height="1dp"
+            android:layout_height="0dp"
             android:layout_weight="1" >
         </View>
 
         <Button android:id="@+id/btnForceGuidedMode"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="@dimen/dimen_120"
+            android:layout_height="@dimen/dimen_120"
             android:background="@drawable/rounded_button_red"
             android:onClick="onBtnForceGuidedMode"
-            android:text="Guided mode"
-            android:textSize="19sp"/>
+            android:text="@string/controls_guide"
+            android:textSize="@dimen/text_size_18"/>
 
         <View
             android:layout_width="0dp"
-            android:layout_height="1dp"
+            android:layout_height="0dp"
             android:layout_weight="1" >
         </View>
 
         <Button android:id="@+id/btnStop"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="@dimen/dimen_120"
+            android:layout_height="@dimen/dimen_120"
             android:background="@drawable/rounded_button_red"
             android:onClick="onBtnStop"
-            android:text="Stop"
-            android:textSize="18sp"/>
+            android:text="@string/controls_stop"
+            android:textSize="@dimen/text_size_18" />
 
         <View
             android:layout_width="0dp"
-            android:layout_height="1dp"
+            android:layout_height="0dp"
             android:layout_weight="1" >
         </View>
     </LinearLayout>
 
+    <ImageView android:id="@+id/compass_north"
+        android:layout_width="@dimen/dimen_200"
+        android:layout_height="@dimen/dimen_200"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/dis_compass"
+        android:background="@drawable/compass_north"/>
+
+    <ImageView android:id="@+id/compass_drone"
+        android:layout_width="@dimen/dimen_200"
+        android:layout_height="@dimen/dimen_200"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/dis_dir"
+        android:background="@drawable/compass_spinner"/>
+
+    <ImageButton android:id="@+id/btnForward"
+        android:layout_width="@dimen/dimen_100"
+        android:layout_height="@dimen/dimen_100"
+        android:layout_above="@+id/compass_north"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/padding_20"
+        android:background="@drawable/arrow_forward"
+        android:contentDescription="@string/dis_forward"
+        android:onClick="onBtnForward"/>
+
+    <ImageButton android:id="@+id/btnRight"
+        android:layout_width="@dimen/dimen_100"
+        android:layout_height="@dimen/dimen_100"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/compass_north"
+        android:layout_marginStart="@dimen/padding_20"
+        android:background="@drawable/arrow_right"
+        android:contentDescription="@string/dis_right"
+        android:onClick="ontBtnRight"/>
+
+    <ImageButton android:id="@+id/btnBackward"
+        android:layout_width="@dimen/dimen_100"
+        android:layout_height="@dimen/dimen_100"
+        android:layout_below="@+id/compass_north"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/padding_20"
+        android:background="@drawable/arrow_backward"
+        android:contentDescription="@string/dis_backward"
+        android:onClick="onBtnBackward"/>
+
+    <ImageButton android:id="@+id/btnLeft"
+        android:layout_width="@dimen/dimen_100"
+        android:layout_height="@dimen/dimen_100"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@+id/compass_north"
+        android:layout_marginEnd="@dimen/padding_20"
+        android:background="@drawable/arrow_left"
+        android:contentDescription="@string/dis_left"
+        android:onClick="onBtnLeft"/>
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/activity_vertical_margin"
+        android:columnCount="2">
+
+        <Button android:id="@+id/btnRotateLeft"
+            android:layout_width="@dimen/dimen_120"
+            android:layout_height="@dimen/dimen_120"
+            android:layout_marginTop="@dimen/padding_25"
+            android:layout_marginStart="@dimen/padding_15"
+            android:background="@drawable/rounded_button_green"
+            android:onClick="onBtnRotateLeft"
+            android:text="@string/controls_rot_left"
+            android:textSize="@dimen/text_size_18"/>
+
+        <Button android:id="@+id/btnRotateRight"
+            android:layout_width="@dimen/dimen_120"
+            android:layout_height="@dimen/dimen_120"
+            android:layout_margin="@dimen/padding_15"
+            android:background="@drawable/rounded_button_green"
+            android:onClick="onBtnRotateRight"
+            android:text="@string/controls_rot_right"
+            android:textSize="@dimen/text_size_18"/>
+
+        <Button android:id="@+id/btnIncreaseAlt"
+            android:layout_width="@dimen/dimen_120"
+            android:layout_height="@dimen/dimen_120"
+            android:layout_margin="@dimen/padding_15"
+            android:background="@drawable/rounded_button_blue"
+            android:onClick="onBtnIncreaseAltitude"
+            android:text="@string/controls_alt_inc"
+            android:textSize="@dimen/text_size_18"/>
+
+        <Button android:id="@+id/btnDecreaseAlt"
+            android:layout_width="@dimen/dimen_120"
+            android:layout_height="@dimen/dimen_120"
+            android:layout_margin="@dimen/padding_15"
+            android:background="@drawable/rounded_button_blue"
+            android:onClick="onBtnDecreaseAltitude"
+            android:text="@string/controls_alt_dec"
+            android:textSize="@dimen/text_size_18"/>
+    </GridLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_toEndOf="@+id/linearLayout"
-        android:layout_below="@+id/linearLayout"
-        android:id="@+id/relativeLayout">
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/btnRight"
+        android:layout_below="@+id/compass_north">
 
-        <ImageView android:id="@+id/compass_north"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:background="@drawable/compass_north"/>
-
-        <ImageView android:id="@+id/compass_drone"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:background="@drawable/compass_spinner"/>
-
-        <ImageButton android:id="@+id/btnForward"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_above="@+id/compass_north"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="20dp"
-            android:onClick="onBtnForward"
-            android:background="@drawable/arrow_forward"/>
-
-        <ImageButton android:id="@+id/btnRight"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_centerVertical="true"
-            android:layout_toEndOf="@+id/compass_north"
-            android:layout_marginStart="20dp"
-            android:onClick="ontBtnRight"
-            android:background="@drawable/arrow_right"/>
-
-        <ImageButton android:id="@+id/btnBackward"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_below="@+id/compass_north"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:onClick="onBtnBackward"
-            android:background="@drawable/arrow_backward"/>
-
-        <ImageButton android:id="@+id/btnLeft"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_centerVertical="true"
-            android:layout_toStartOf="@+id/compass_north"
-            android:layout_marginEnd="20dp"
-            android:onClick="onBtnLeft"
-            android:background="@drawable/arrow_left"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignStart="@+id/relativeLayout"
-        android:layout_above="@+id/relativeLayout">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
+        <LinearLayout android:id="@+id/linearLayout3"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
-            android:layout_above="@+id/linearLayout2">
+            android:layout_alignParentEnd="true"
+            android:orientation="vertical">
 
             <Button android:id="@+id/btnLoadStream"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Load"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_45"
+                android:onClick="onBtnLoadStream"
+                android:text="@string/stream_load"
                 android:textColor="#000"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignStart="@+id/btnLookUp"
-                android:onClick="onBtnLoadStream" />
+                android:textSize="@dimen/text_size_14" />
 
             <Button android:id="@+id/btnRecord"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Toggle Record"
+                android:layout_height="@dimen/dimen_45"
+                android:onClick="onBtnRecord"
+                android:text="@string/stream_rec"
                 android:textColor="#000"
-                android:layout_below="@+id/btnLoadStream"
-                android:layout_alignParentEnd="true"
-                android:layout_alignStart="@+id/btnLookUp"
-                android:onClick="onBtnRecord"/>
+                android:textSize="@dimen/text_size_14"/>
 
             <Button android:id="@+id/btnPhoto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Photo"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_45"
+                android:onClick="onBtnPhoto"
+                android:text="@string/stream_photo"
                 android:textColor="#000"
-                android:layout_below="@+id/btnRecord"
-                android:layout_alignParentEnd="true"
-                android:layout_alignStart="@+id/btnLookUp"
-                android:onClick="onBtnPhoto"/>
+                android:textSize="@dimen/text_size_14"/>
 
             <Button android:id="@+id/btnLookUp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Look Up"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_45"
+                android:onClick="onBtnLookUp"
+                android:text="@string/stream_up"
                 android:textColor="#000"
-                android:layout_below="@+id/btnPhoto"
-                android:layout_alignParentEnd="true"
-                android:layout_alignStart="@+id/btnLookDown"
-                android:onClick="onBtnLookUp"/>
+                android:textSize="@dimen/text_size_14"/>
 
             <Button android:id="@+id/btnLookDown"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Look Down"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_45"
+                android:onClick="onBtnLookDown"
+                android:text="@string/stream_down"
                 android:textColor="#000"
-                android:layout_below="@+id/btnLookUp"
-                android:layout_alignParentEnd="true"
-                android:onClick="onBtnLookDown"/>
-
-            <TextureView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/stream_frame"
-                android:layout_toStartOf="@+id/btnLoadStream" />
-
-        </RelativeLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:id="@+id/linearLayout2">
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1" >
-            </View>
-
-            <Button android:id="@+id/btnIncreaseAlt"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:text="Increase Altitude"
-                android:textSize="20sp"
-                android:onClick="onBtnIncreaseAltitude"
-                android:background="@drawable/rounded_button_blue"/>
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1" >
-            </View>
-
-            <Button android:id="@+id/btnRotateLeft"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:text="Rotate left"
-                android:textSize="20sp"
-                android:onClick="onBtnRotateLeft"
-                android:background="@drawable/rounded_button_green" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1" >
-            </View>
-
-            <Button android:id="@+id/btnRotateRight"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:text="Rotate right"
-                android:textSize="20sp"
-                android:onClick="onBtnRotateRight"
-                android:background="@drawable/rounded_button_green"/>
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1" >
-            </View>
-
-            <Button android:id="@+id/btnDecreaseAlt"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:text="Decrease Altitude"
-                android:textSize="20sp"
-                android:background="@drawable/rounded_button_blue"
-                android:onClick="onBtnDecreaseAltitude" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1" >
-            </View>
+                android:textSize="@dimen/text_size_14"/>
         </LinearLayout>
+
+        <TextureView android:id="@+id/stream_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/linearLayout3" />
     </RelativeLayout>
+
 </RelativeLayout>
