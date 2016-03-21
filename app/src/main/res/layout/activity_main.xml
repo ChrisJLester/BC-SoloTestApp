@@ -66,14 +66,16 @@
         <TextView android:id="@+id/lblHomeLat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="@dimen/padding_20"
+            android:layout_marginLeft="@dimen/padding_20"
             android:text="@string/tele_lat"
             android:textSize="@dimen/text_size_18"/>
 
         <TextView android:id="@+id/lblHomeLong"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="@dimen/padding_20"
+            android:layout_marginLeft="@dimen/padding_20"
             android:text="@string/tele_long"
             android:textSize="@dimen/text_size_18"/>
 
@@ -86,14 +88,16 @@
         <TextView android:id="@+id/lblCurrentLat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="@dimen/padding_20"
+            android:layout_marginLeft="@dimen/padding_20"
             android:text="@string/tele_lat"
             android:textSize="@dimen/text_size_18"/>
 
         <TextView android:id="@+id/lblCurrentLong"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="@dimen/padding_20"
+            android:layout_marginLeft="@dimen/padding_20"
             android:text="@string/tele_long"
             android:textSize="@dimen/text_size_18"/>
 
@@ -106,7 +110,8 @@
         <TextView android:id="@+id/lblDistance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="@dimen/padding_20"
+            android:layout_marginLeft="@dimen/padding_20"
             android:text="@string/tele_dis2"
             android:textSize="@dimen/text_size_18"/>
 
@@ -165,6 +170,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_toEndOf="@id/linearLayout"
+        android:layout_toRightOf="@id/linearLayout"
         android:orientation="vertical"
         android:padding="@dimen/padding_15">
 
@@ -262,7 +268,9 @@
         android:layout_height="@dimen/dimen_100"
         android:layout_centerVertical="true"
         android:layout_toEndOf="@+id/compass_north"
+        android:layout_toRightOf="@+id/compass_north"
         android:layout_marginStart="@dimen/padding_20"
+        android:layout_marginLeft="@dimen/padding_20"
         android:background="@drawable/arrow_right"
         android:contentDescription="@string/dis_right"
         android:onClick="ontBtnRight"/>
@@ -282,7 +290,9 @@
         android:layout_height="@dimen/dimen_100"
         android:layout_centerVertical="true"
         android:layout_toStartOf="@+id/compass_north"
+        android:layout_toLeftOf="@+id/compass_north"
         android:layout_marginEnd="@dimen/padding_20"
+        android:layout_marginRight="@dimen/padding_20"
         android:background="@drawable/arrow_left"
         android:contentDescription="@string/dis_left"
         android:onClick="onBtnLeft"/>
@@ -292,7 +302,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_marginEnd="@dimen/activity_vertical_margin"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
         android:columnCount="2">
 
         <Button android:id="@+id/btnRotateLeft"
@@ -300,6 +312,7 @@
             android:layout_height="@dimen/dimen_120"
             android:layout_marginTop="@dimen/padding_25"
             android:layout_marginStart="@dimen/padding_15"
+            android:layout_marginLeft="@dimen/padding_15"
             android:background="@drawable/rounded_button_green"
             android:onClick="onBtnRotateLeft"
             android:text="@string/controls_rot_left"
@@ -338,7 +351,9 @@
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_alignStart="@+id/btnRight"
+        android:layout_alignLeft="@id/btnRight"
         android:layout_below="@+id/compass_north">
 
         <LinearLayout android:id="@+id/linearLayout3"
@@ -346,6 +361,7 @@
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
             android:orientation="vertical">
 
             <Button android:id="@+id/btnLoadStream"
@@ -393,7 +409,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_toStartOf="@+id/linearLayout3" />
+            android:layout_toStartOf="@+id/linearLayout3"
+            android:layout_toLeftOf="@id/linearLayout3"/>
     </RelativeLayout>
 
 </RelativeLayout>
