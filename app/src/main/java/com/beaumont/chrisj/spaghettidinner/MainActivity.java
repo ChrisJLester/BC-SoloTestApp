@@ -696,7 +696,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         lblSettings_Alt.setText(MOVEMENT_ALT + "");
         lblSettings_Deg.setText(MOVEMENT_DEG + "");
         lblSettings_Dur.setText(YAW_CHK_DUR / 1000 + "");
-        lblSettings_Spd.setText((int)TURN_SPD * 100 + "");
+        lblSettings_Spd.setText(TURN_SPD * 100 + "");
         lblSettings_Yaw.setText(MOVEMENT_YAW + "");
 
         alertDialog.setView(convertView)
@@ -897,6 +897,3 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
 
 //TODO:update telemtry
-//TODO:add takeoff height to settings
-//TODO:Fix rotate button
-//TODO:Fix turn speed
