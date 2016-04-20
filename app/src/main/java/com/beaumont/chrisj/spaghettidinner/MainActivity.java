@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private Drone drone;
     private int droneType = Type.TYPE_UNKNOWN;
     private final Handler handler = new Handler();
+    private boolean towerConn;
     private boolean isFlying;
     private double drone_yaw;
     private double target_yaw;
@@ -175,11 +176,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         lblTowerConn.setText(R.string.tower_conn);
         this.controlTower.registerDrone(this.drone, this.handler);
         this.drone.registerDroneListener(this);
+        towerConn = true;
     }
 
     @Override
     public void onTowerDisconnected(){
         lblTowerConn.setText(R.string.tele_tower);
+        towerConn = false;
     }
 
     @Override
@@ -258,8 +261,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         this.controlTower = new ControlTower(getApplicationContext());
         this.drone = new Drone(getApplicationContext());
-
-        makeToast("Welcome! :)");
     }
 
 
@@ -269,11 +270,15 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         if(this.drone.isConnected()) {
             this.drone.disconnect();
         } else {
-            Bundle extraParams = new Bundle();
-            extraParams.putInt(ConnectionType.EXTRA_UDP_SERVER_PORT, 14550); // Set default port to 14550
+            if(!towerConn)
+                makeToast("Make sure 3DR Services app is running, or restart this app");
+            else{
+                Bundle extraParams = new Bundle();
+                extraParams.putInt(ConnectionType.EXTRA_UDP_SERVER_PORT, 14550); // Set default port to 14550
 
-            ConnectionParameter connectionParams = new ConnectionParameter(ConnectionType.TYPE_UDP, extraParams, null);
-            this.drone.connect(connectionParams);
+                ConnectionParameter connectionParams = new ConnectionParameter(ConnectionType.TYPE_UDP, extraParams, null);
+                this.drone.connect(connectionParams);
+            }
         }
     }
 
@@ -363,6 +368,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             // Connected but not Armed
             lblSoloState.setText(R.string.solo_state_connected);
             btnLaunch.setText(R.string.action_btn_arm);
+            force_Guided_mode();
         }
     }
 
@@ -638,12 +644,12 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     protected void updateAltitude() {
         Altitude droneAltitude = this.drone.getAttribute(AttributeType.ALTITUDE);
-        lblAlt.setText(getResources().getString(R.string.tele_update_spd, droneAltitude.getAltitude()));
+        lblAlt.setText(String.format("Altitude: %.2f meters", droneAltitude.getAltitude()));
     }
 
     protected void updateSpeed() {
         Speed droneSpeed = this.drone.getAttribute(AttributeType.SPEED);
-        lblSpeed.setText(getResources().getString(R.string.tele_update_spd, droneSpeed.getGroundSpeed()));
+        lblSpeed.setText(String.format("Speed: %.2f m/s", droneSpeed.getGroundSpeed()));
 
         Gps droneGps = this.drone.getAttribute(AttributeType.GPS);
         lblCurrentLat.setText(String.format("Lat: %.2f", droneGps.getPosition().getLatitude()));
@@ -654,13 +660,14 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     protected void updateHome(){
         Home droneHome = this.drone.getAttribute(AttributeType.HOME);
-        lblHomeLat.setText(getResources().getString(R.string.tele_update_home_lat, droneHome.getCoordinate().getLatitude()));
-        lblHomeLong.setText(getResources().getString(R.string.tele_update_home_long, droneHome.getCoordinate().getLongitude()));
+        lblHomeLat.setText(getResources().getString(R.string.tele_update_lat, droneHome.getCoordinate().getLatitude()));
+        lblHomeLong.setText(getResources().getString(R.string.tele_update_long, droneHome.getCoordinate().getLongitude()));
     }
 
     protected void updateBattery(){
         Battery bat = this.drone.getAttribute(AttributeType.BATTERY);
-        lblSoloBatt.setText(getResources().getString(R.string.tele_update_mode, bat.getBatteryRemain()));
+
+        lblSoloBatt.setText(String.format("Solo battery life: %.2f %", bat.getBatteryRemain()));
     }
 
     protected void updateDistanceFromHome() {
@@ -679,7 +686,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             distanceFromHome = 0;
         }
 
-        lblDistance.setText(getResources().getString(R.string.tele_update_batt, distanceFromHome));
+        //lblDistance.setText(getResources().getString(R.string.tele_update_dis, distanceFromHome));
+
+        lblDistance.setText(String.format(" %.2f meters", distanceFromHome));
     }
 
     public void onBtnSettings(View view){

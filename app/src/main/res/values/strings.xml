@@ -58,8 +58,8 @@
     <string name="solo_conn">Solo connected: true</string>
 
     <string name="tele_update_mode">Solo mode: %1$s</string>
-    <string name="tele_update_home_lat">%.2f m</string>
-    <string name="tele_update_home_long">%.2f m</string>
+    <string name="tele_update_lat">Lat: %.4f</string>
+    <string name="tele_update_long">Long: %.4f</string>
     <string name="tele_update_batt">Solo battery life: %1$d %</string>
     <string name="tele_update_alt">Altitude: %.2$d m%</string>
     <string name="tele_update_spd">Speed: %.2$d m/s</string>
